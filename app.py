@@ -21,22 +21,28 @@ reverse_keypad = {char: (key, index + 1) for key, chars in keypad.items() for in
 def encrypt(message):
     encrypted_message = ''
     for char in message.lower():
-        for key, chars in keypad.items():
-            if char in chars:
-                encrypted_message += key * (chars.index(char) + 1) + ' '
-                break
+        if char.isdigit():
+            encrypted_message += f"#{char} "
+        else:
+            for key, chars in keypad.items():
+                if char in chars:
+                    encrypted_message += key * (chars.index(char) + 1) + ' '
+                    break
     return encrypted_message.strip()
 
 def decrypt(encrypted_message):
     decrypted_message = ''
     tokens = encrypted_message.split()
     for token in tokens:
-        key = token[0]
-        count = len(token)
-        for char, (k, cnt) in reverse_keypad.items():
-            if k == key and cnt == count:
-                decrypted_message += char
-                break
+        if token.startswith('#'):
+            decrypted_message += token[1]
+        else:
+            key = token[0]
+            count = len(token)
+            for char, (k, cnt) in reverse_keypad.items():
+                if k == key and cnt == count:
+                    decrypted_message += char
+                    break
     return decrypted_message
 
 def remove_special_characters(message):
@@ -51,7 +57,7 @@ def index():
 def process():
     message = request.form['message']
     message = remove_special_characters(message)
-    if not all(char.isdigit() or char.isspace() for char in message):
+    if not all(char.isdigit() or char.isspace() or char == "#" for char in message):
         result = encrypt(message)
     else:
         result = decrypt(message)
