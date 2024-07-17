@@ -1,6 +1,6 @@
 # T9 Keyboard Translator
 
-![CI/CD Pipeline](https://github.com/mayconrfreitas/t9-keyboard-translator/actions/workflows/ci-cd.yml/badge.svg)
+![CI/CD Pipeline](https://github.com/mayconrfreitas/t9-keyboard-translator/actions/workflows/master_t9-keyboard-translator.yml/badge.svg)
 
 ![Sample GIF](./assets/sample.gif)
 
