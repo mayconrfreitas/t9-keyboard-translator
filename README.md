@@ -1,10 +1,15 @@
 # T9 Keyboard Translator
 
+![CI/CD Pipeline](https://github.com/mayconrfreitas/t9-keyboard-translator/actions/workflows/ci-cd.yml/badge.svg)
+
 ![Sample GIF](./assets/sample.gif)
 
 A web application that encrypts and decrypts messages using the T9 keyboard style, like the classic Nokia 1100. 
 
 ![Keyboard image](./assets/keyboard_image.png)
+
+> [!NOTE]  
+> Test it here -> [Demo](https://t9-keyboard-translator.azurewebsites.net/)
 
 ## Table of Contents
 
